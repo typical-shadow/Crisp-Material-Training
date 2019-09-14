@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>Test Page</title>
+
+	<style>
+	table
+	{
+		height:180px;
+		width:300px;
+		font-size:20px;
+	}
+	</style>
+    
+	<script language="javascript">
+	function selectproduct()
+    {
+        var temp;
+        temp=document.getElementById("cat").value;
+        if(temp=="Electronics")
+        {
+            document.getElementById("prod").options[1].text="Television";
+			document.getElementById("prod").options[1].value="Television";
+            document.getElementById("prod").options[2].text="Laptop";
+			document.getElementById("prod").options[2].value="Laptop";
+            document.getElementById("prod").options[3].text="Phone";
+			document.getElementById("prod").options[3].value="Phone";
+        }
+        else if(temp=="Grocery")
+        {
+            document.getElementById("prod").options[1].text="Soap";
+			document.getElementById("prod").options[1].value="Soap";
+            document.getElementById("prod").options[2].text="Powder";
+			document.getElementById("prod").options[2].value="Powder";
+            document.getElementById("prod").options[3].text="oil";
+			document.getElementById("prod").options[3].value="oil";
+        }
+    }     
+   
+    function totalamount()
+    {
+        var category,product,quantity,price,total;
+        category=document.getElementById("cat").value;
+        product=document.getElementById("prod").value; // fetching val from html ele	 	 
+        quantity=parseInt(document.getElementById("quant").value,10);
+        
+        if(quantity <= 0)
+        {
+            alert("Enter valid quantity");
+        }
+        else
+        {
+            if(product=="Television")
+            	price = 20000;
+            else if(product=="Laptop")
+				price = 30000;
+            else if(product=="Phone")
+				price = 10000;
+            else if(product=="Soap")
+				price = 40;
+            else if(product=="Powder")
+				price = 20;
+			else if(product=="oil")
+				price = 100;
+        }
+		total=price * quantity;
+        document.getElementById("total").enabled=true;
+        document.getElementById("total").value=total;     
+/*
+	  alert("Category:" + document.getElementById('cat').value + "\n"
+      +	"Product:" + document.getElementById('prod').value + "\n"
+	  + "Quantity:" + quantity + "\n"	
+	  + "Price:" + price + "\n"	
+	  + "Total:" + total + "\n"
+	  );
+*/  
+	
+	myWindow = window.open('','mywin','left=40,top=50,width=300,height=200');
+    myWindow.document.writeln("<html><body>Category : " 
+							+ category
+							+ "<br>Product :" 
+							+ product 
+							+ "<br>Qty:" 
+							+ quantity 
+							+ "<br>Price: " 
+							+ price 
+							+ "<br>TotalPrice: " 
+							+ total 
+							+ "</body></html>");
+
+	}   
+</script> 
+</head>
+
+<body>
+    <form onsubmit="totalamount()">
+        <table>
+            <tr> 
+				<td>Category: </td>
+				<td>
+             <select name="category" id="cat" onchange="selectproduct()">
+               <option value=" ">
+               <option value="Electronics">Electronics
+               <option value="Grocery">Grocery
+            </option></select></td></tr>
+            
+            <tr> <td>Product: </td><td>
+			<select name="product" id="prod"/>
+               <option value=" ">
+               <option value=" ">
+               <option value=" ">
+               <option value=" ">
+               </option></select></td></tr>
+                    <tr> <td>Quantity</td><td>
+					<input type="text" name ="quant" id="quant" required></td></tr>
+                   <tr> <td>Total Price</td><td><input type="text" name ="total" disabled id="total"></td></tr>
+                   <tr>
+				<td></td>   
+                <td>
+				<!--
+				<input type="button" name="btn1" value="Submit" onclick="totalamount()"/>
+				-->
+				<input type="submit" name="btn1" value="Submit"/>
+                <input type="reset" name="reset" value="Clear"/></td>
+            </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

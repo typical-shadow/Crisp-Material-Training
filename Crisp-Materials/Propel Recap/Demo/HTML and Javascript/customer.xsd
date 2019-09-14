@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+  
+  
+<!-- Definition of Simple Elements-->
+  
+  <xs:element name="CUST_NAME" type="xs:string"/>
+  <xs:element name="CEMAIL">
+  <xs:simpleType>
+   <xs:restriction base="xs:string">
+     <xs:pattern value="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
+   </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+  <xs:element name="CUST_MOBILE">
+   <xs:simpleType>
+   <xs:restriction base="xs:string">
+     <xs:pattern value="[0-9]{10}"/>
+   </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+	<xs:element name="FAV_TECHNO">      
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="JAVA|Testing|PHP" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element> 
+ <xs:element name="BILL">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="100.00" />
+				<xs:maxInclusive value="500.00" />
+			</xs:restriction>
+		</xs:simpleType>
+</xs:element> 
+  <xs:element name="DOBILL" type="xs:date"/>
+ 
+ <!-- Definition of attributes -->
+<xs:attribute name="CUST_ID" type="xs:string">
+</xs:attribute>
+
+<!-- Definition of xml structure for a particular record-->
+<xs:element name="CDETAILS">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="CUST_NAME"/>
+			<xs:element ref="CEMAIL"/>
+			<xs:element ref="CUST_MOBILE"/>
+			<xs:element ref="FAV_TECHNO"/>
+			<xs:element ref="BILL"/>
+			<xs:element ref="DOBILL"/>
+		</xs:sequence>
+		<xs:attribute ref="CUST_ID" use="required"/>
+	</xs:complexType>
+</xs:element>
+<!-- Structure of whole xml file -->
+<xs:element name="CUSTOMER">
+	<xs:complexType>
+	<xs:sequence>
+		<xs:element name="CDETAILS" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+</xs:element>
+</xs:schema>

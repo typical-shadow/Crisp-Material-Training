@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CUSTOMER xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="customer.xsd">
+
+	<CDETAILS CUST_ID="2001">
+		<CUST_NAME>Rohini</CUST_NAME>
+		<CEMAIL>rohini@igate.com</CEMAIL>
+		<CUST_MOBILE>9874563214</CUST_MOBILE>
+		<FAV_TECHNO>Testing</FAV_TECHNO>
+		<BILL>500.00</BILL>
+		<DOBILL>1990-12-17</DOBILL>
+	</CDETAILS>
+	
+	<CDETAILS CUST_ID="2002">
+		<CUST_NAME>Satyen</CUST_NAME>
+		<CEMAIL>Satyen@igate.com</CEMAIL>
+		<CUST_MOBILE>9874576800</CUST_MOBILE>
+		<FAV_TECHNO>PHP</FAV_TECHNO>
+		<BILL>200.00</BILL>
+		<DOBILL>2014-11-28</DOBILL>
+	</CDETAILS>
+</CUSTOMER>

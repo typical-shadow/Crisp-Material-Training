@@ -1,0 +1,100 @@
+/*********************************************************************
+ * File                 : Vehicledetails.txt
+ * Author Name          : Prince Sharma
+ * Desc                 : Program to get Service Feedback & total cost. 
+ * Version              : 1.0
+ * Last Modified Date   : 20-june-2018
+ * Change Description   : used three modules for finding digit validity, feedback & total cost
+ *********************************************************************/
+BEGIN
+	DECLARE Rate AS Integer	  
+	Declare Vehicle_cost, tcs As DOUBLE
+	Declare Vehicle_Type, fb As CHAR 
+	
+	Accept Rate
+	Accept Vehicle_cost
+	Accept vehicle_type
+	
+	IF(isValid(Rate)) THEN
+		IF (Rate >1 && Rate <=10) THEN
+			fb=findfeedback(Rate)
+		ELSE
+			PRINT "Enter numbers between 1 to 10"
+		END IF
+	ELSE
+		PRINT "Enter only digits"
+	END IF
+
+	tcs = calculateTotalCost(vehicle_cost, vehicle_type)
+	PRINT "******Total Cost of Vehicle Service*******" tcs
+	PRINT "Rating" Rate
+	PRINT "FEEDBACK " fb
+	
+End
+
+
+/*********************************************************************
+* Module Name         : isValid()
+* Input Parameters    : Rate
+* Return Type         : BOOLEAN
+* Author              : Prince Sharma
+* Creation Date       : 20-june-2018
+* Description         : Check digit validity
+ *********************************************************************/
+SUB isValid(data)
+	IF(isDigits(data)) THEN
+		RETURN true
+	ELSE	
+		RETURN false
+	END IF
+END SUB
+
+/*********************************************************************
+* Module Name         : findFeedback()
+* Input Parameters    : Rate
+* Return Type         : CHAR
+* Author              : Prince Sharma
+* Creation Date       : 20-june-2018
+* Description         : find the feedback of the service.
+ *********************************************************************/
+SUB findFeedback(Rate)
+	IF (Rate>=2 && Rate<=5) then
+		RETURN "Poor"
+	Elseif (Rate>5 && Rate<=7) then
+		Print "Feedback Is Average"
+	Elseif (Rate>=8 && Rate<=9) then
+		Print "Feedback Is Good"
+	Else 
+		Print "Rating is Excellent"
+	End If
+
+END SUB
+/*********************************************************************
+* Module Name         : calculateTotalCost
+* Input Parameters    : Vehicle_cost, Vehicle_Type
+* Return Type         : Double
+* Author              : Prince Sharma
+* Creation Date       : 20-june-2018
+* Description         : Calculating Total Cost Of Vehicle.
+ *********************************************************************/
+SUB calculateTotalCost(vehicle_cost, vehicle_type)
+	DECLARE tc as DOUBLE
+	IF (VT=="All") THEN
+		tc = 200
+	ELSE IF(VT="HAtchback") then
+		tc = (15/100 * vc)
+	ELSE IF(VT="smaill cars") then
+		tc = (10/100 * vc)
+	ELSE
+		PRINT "Invalid vehicle type"
+	END IF
+RETURN tc
+END SUB
+
+	
+	I
+	
+	
+
+	
+	

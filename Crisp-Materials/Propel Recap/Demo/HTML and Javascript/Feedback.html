@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feedback</title>
+		<script language="javascript">
+		function populateCity(){
+		 var temp;
+        temp=document.getElementById("state").value;
+        if(temp=="AP")
+        {
+            document.getElementById("city").options[1].text="HYD";
+			document.getElementById("city").options[1].value="HYD";
+            document.getElementById("city").options[2].text="NZMBD";
+			document.getElementById("city").options[2].value="NZMBD";
+         }
+        else if(temp=="TN")
+        {
+            document.getElementById("city").options[1].text="CHN";
+			document.getElementById("city").options[1].value="CHN";
+            document.getElementById("city").options[2].text="PCHERRY";
+			document.getElementById("city").options[2].value="PCHERRY";
+        }
+		}
+			function displayFeedback()
+			{
+				var sname, cname, Rate, feedback, chkservice;
+				sname = document.getElementById("surname").value;
+				cname = document.getElementById("txtname").value;
+				Rate= document.getElementById("feed").value;
+				alert("Thanks for your Valuable Feedback " + sname + "." + cname 
+						+ "\n" + chkservice);
+      
+				if (Rate>=1 && Rate<=5) {  feedback = "Poor"; }
+				else if (Rate>5 && Rate<=7) {feedback = "Average";}
+				else if(Rate>=8 && Rate<=9) {feedback = "Good"; }
+				else {feedback="Excellent";}
+				
+				document.getElementById("feed").value = feedback;
+				
+				if(document.getElementById("ser").checked) 
+				{
+				chkservice = "service selected"
+				}
+				else
+				{
+				chkservice = "service selected"
+				}
+			}		    
+		</script>
+</head>
+    <body>
+	<h1>Feedback Form</h1>
+       <form onsubmit="displayFeedback()">
+
+           <!--     supported only on Safari      -->
+           <table>
+            <tr>
+                <td><label>Name*  </label> </td>
+				<td>
+				<select id="surname">
+				<option value="Mr.">Mr.</option>
+				<option value="Mrs.">Mrs.</option>
+				<option value="Miss">Miss</option>
+				</select> 
+				<input id ="txtname" name="txtName" pattern="[A-Z][a-z]{6, }" required/>
+				</td>
+                
+			</tr>
+			
+			<tr>
+				<td><label>Address 1*</label></td>
+				<td><input id ="add" name="address" type="text" required/></td>
+			</tr>	
+			
+			<tr>
+				<td><label>Address 2*</label></td>
+				<td><input id ="add" name="address" type="text" required/></td>
+			</tr>
+			
+			<tr>
+				<td>
+				<label>State*</label>
+				<select id ="state" name="state" onchange="populateCity()">
+				<option value="">Select State
+				<option value="AP">Andra Pradesh
+                <option value="TN"> Tamil Nadu
+                </select></td>
+				
+			    <td>
+				<label>City*</label>
+				<select id ="city" name="city"/>
+				<option value="">
+                <option value="">
+                <option value="">
+                
+				</select></td>
+            </tr>
+			<tr>
+				<td><label>Pincode*</label></td>
+				<td><input id ="Pin" pattern= "[0-9]{3}\s[0-9]{3}"/></td>
+			</tr>
+			<tr>
+				<td><label>Mobile Number*</label></td>
+				<td><input id ="mobile" pattern= "[0-9]{10}"/></td>
+			</tr>	
+            
+			<tr>
+                <td><label for="email">Email ID*:</label></td>
+				<td><input id="email" name="txtEmail" type="email" required/></td>
+            </tr>
+			
+			<tr>
+			<td>
+				<label>Select Car Model</label></td>
+				<td><input id ="model" type="text" list="models" /></td>
+				<td><datalist id="models">
+				<option value="Alto">
+                <option value="Wagon R">
+                <option value="Swift">
+                <option value="Swift Dezire">
+                <option value="Zen">          
+                </datalist></td>
+			</tr>
+			<tr>
+			<td colspan="2">
+			<input id="ser" type="checkbox" value="paint" />paint
+			<input id="ser" type="checkbox" value="EngineRepair" />EngineRepair
+			<input id="ser" type="checkbox" value="BodyRepair" />BodyRepair
+			<input id="ser" type="checkbox" value="FreeService" />FreeService
+			<input id="ser" type="checkbox" value="PaidService" />PaidService
+			</td>
+			</tr>
+		
+			<tr>
+			<td><label>Total Kilometers Covered*</label></td>
+			<td><input id="distance" pattern= "[0-9]{1,5}" required/></td>
+			</tr>
+		
+			<tr>
+			<td><label>Your Feedback*</label></td>
+			<td><input id ="feed" type="number"  required/>
+		        
+				<input type="submit" name="submit" value="Submit" />
+                
+				<input type="reset" name="reset" value="reset"/></td>
+				
+			</tr>
+            </table>
+			
+			
+       </form>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Form Elements</title>
+    
+</head>
+    <body>
+	<script src="validation.js"></script>
+	<h1>Registration Form</h1>
+       <form name="frmRegister" action="index2.jsp" onsubmit="validate()">
+
+           <!--     supported only on Safari      -->
+           <table>
+            <tr>
+                <td><label for="demo">Name : </label></td>
+                <td><input id ="demo" name="txtName" placeholder="Enter Characters Only" pattern="[A-Z][a-z]+" title="First letter should be capital and only characters." required/></td>
+            </tr>
+
+            <tr>
+                <td><label for="nameauto">Password : </label></td>
+                <td><input id ="nameauto" name="txtPass" type="password" pattern="[A-Za-z0-9]{3,15}" autofocus title="Minimum 3 and maximum 15 characters, only characters and digits are allowed" required/></td>
+            </tr>
+       
+
+            <!--     supported only on Opera 10.5 onwards      -->
+            <tr>
+                <td><label for="date">Registration Date : </label></td>
+                <td><input id="date" name="dtReg" type="date" min="2017-04-10" max="2022-08-14" required/></td>
+            </tr>
+            
+            <tr>
+                <td><label for="number">Rating : </label></td>
+                <td><input id="number" name="numRate" type="number" step="1" min="1" max="10" value="0" /><td>
+            </tr>
+	    <tr>
+                <td><label for="gender">Gender:</label></td>
+		<td><input id="gender" name="rdGender" type="radio" value="Male" checked/>Male
+		<input id="gender" name="rdGender" type="radio" value="Female"/>Female
+		</td>
+            </tr>
+	    
+             <tr>
+                <td><label for="email">Email:</label></td>
+		<td><input id="email" name="txtEmail" type="email" required/></td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+		<td>
+			<select id="email" name="ddCity">
+				<option value="none">Select city</option>
+				<option value="Pune">Pune</option>
+				<option value="Mumbai" selected>Mumbai</option>
+				<option value="Chennai">Chennai</option>
+				<option value="Bangalore">Bangalore</option>
+			</select>
+		</td>
+            </tr>
+
+            
+                <td align="right">
+				<input type="submit" name="submit" value="Submit"></td>
+                <td align="left">
+				<input type="reset" name="reset" value="reset"></td>
+            </tr>
+            </table>
+       </form>
+    </body>
+</html>

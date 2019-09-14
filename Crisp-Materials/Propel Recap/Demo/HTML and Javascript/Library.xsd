@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+      
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  
+<!-- Definition of Simple Elements-->
+  
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="author" type="xs:string"/>
+  <xs:element name="publisher" type="xs:string"/>
+  <xs:element name="price" type="xs:decimal"/>      
+  <xs:element name="comments" type="xs:string"/>
+
+  <!-- Definition of attributes -->
+  <!-- definition for 'cover' element with its attribute-->
+  <xs:element name="cover">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="cover_type" type="xs:string"  use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- definition for 'category' element with its attribute-->
+  <xs:element name="category">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="cat_type" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- definition for 'isbn' element with its attribute-->
+  <xs:element name="isbn">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="isbn_num" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>   
+  
+<!-- definition for 'rating' element with its attribute-->  
+  <xs:element name="rating">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="rate_val" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Restrictions for 'cover_type'-->
+  <xs:attribute name="cover_type">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="hardbook|paperbook|ebook"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- Restrictions for 'cat_type'-->
+  <xs:attribute name="cat_type">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="horror|romantic|inspirational|technical"/>
+		</xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  
+<!-- Restrictions for 'rate_val'-->
+  <xs:attribute name="rate_val">
+    <xs:simpleType>
+      <xs:restriction base="xs:positiveInteger">
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="5"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <!-- required xml record structure for a Book -->
+ <xs:element name="book">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="author"/>
+        <xs:element ref="publisher"/>
+        <xs:element ref="cover"/>
+        <xs:element ref="category"/>
+        <xs:element ref="isbn"/>
+        <xs:element ref="rating"/>
+        <xs:element ref="price"/>
+        <xs:element ref="comments"/>        
+      </xs:sequence>  
+    </xs:complexType>    
+  </xs:element>
+
+  <!-- required xml structure -->
+  <xs:element name="Library">
+    <xs:complexType>
+      <xs:sequence>        
+        <xs:element ref="book" maxOccurs="unbounded" />        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>  
+</xs:schema>

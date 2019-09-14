@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="Library.xsd">
+
+	<book>
+		<title>Dead to the World</title>
+		<author>Charlaine Harris</author>
+		<publisher>ABC publishing company</publisher>
+		<cover cover_type="hardbook"/>
+		<category cat_type="horror"/>
+		<isbn isbn_num="Z1"/>
+		<rating rate_val="5"/>
+		<price>13.59</price>
+		<comments>A good Book</comments>
+  </book>
+  <book>
+    <title>Gardens of the moon</title>    
+     <author></author>
+    <publisher></publisher>
+    <cover cover_type="hardbook"></cover>
+    <category cat_type="Inspirational"></category>
+    <isbn isbn_num="Z3"></isbn>
+    <rating rate_val="4"></rating>
+    <price>20.50</price>
+    <comments>Wonderful Book</comments>
+  </book>
+</Library>
